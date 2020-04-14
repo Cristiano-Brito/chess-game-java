@@ -23,7 +23,7 @@ public class ChessMatch {
 		}
 		return mat;
 	}
-	//Initial setuo place put pieces
+	//Initial setup place put pieces
 	public void initialSetup() {
 		board.placePiece(new Rook(board, Color.WHITE), new Position(2,1));
 		board.placePiece(new King(board, Color.BLACK), new Position(0,4));
