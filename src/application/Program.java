@@ -13,21 +13,26 @@ public class Program {
 	public static void main(String[] args) {
 		
 		Scanner input = new Scanner(System.in);
-		ChessMatch chessmatch = new ChessMatch();
+		ChessMatch chessMatch = new ChessMatch();
 		
 		while(true) {
 			try {
 				UI.clearScreen();
-				UI.printBoard(chessmatch.getPiece());
+				UI.printBoard(chessMatch.getPiece());
 				System.out.println();
 				System.out.print("Source: ");
 				ChessPosition source = UI.readChessPosition(input);
+				
+				//prints the game screen with the possible positions
+				boolean[][] possibleMoves = chessMatch.possileMoves(source);
+				UI.clearScreen();
+				UI.printBoard(chessMatch.getPiece(), possibleMoves);
 				
 				System.out.println();
 				System.out.print("Target: ");
 				ChessPosition target = UI.readChessPosition(input);
 				
-				ChessPiece capturedPiece = chessmatch.perfomChessMove(source, target);
+				ChessPiece capturedPiece = chessMatch.perfomChessMove(source, target);
 			}
 			catch(ChessException e) {
 				System.out.println(e.getMessage());
