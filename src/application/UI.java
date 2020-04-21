@@ -3,6 +3,7 @@ package application;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import chess.ChessMatch;
 import chess.ChessPiece;
 import chess.ChessPosition;
 import chess.Color;
@@ -48,7 +49,13 @@ public class UI {
 		}
 	}
 
-	
+	public static void printMatch(ChessMatch chessmatch) {
+		printBoard(chessmatch.getPiece());
+		System.out.println();
+		System.out.println("Turn: " +  chessmatch.getTurne());
+		System.out.println("Waiting Player: " + chessmatch.getCurrentPlayer());
+	}
+		
 	public static void printBoard(ChessPiece[][] pieces) {
 		for(int i=0; i<pieces.length; i++) {
 			System.out.print((8 - i) + " ");
